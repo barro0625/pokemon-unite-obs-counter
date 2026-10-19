@@ -88,3 +88,6 @@ code { color:#c3d4ff; background:#202940; padding:2px 5px; border-radius:4px; }
   .inline-form, .button-row { flex-direction:column; }
   .overlay { width:100%; }
 }
+
+
+.sync-status { margin: 8px 0; font-size: 12px; color: #9ca3af; }
