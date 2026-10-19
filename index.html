@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>寶可夢大集結｜直播勝敗紀錄</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main id="overlay" class="overlay">
+    <section class="panel">
+      <header class="heading">
+        <span class="live-dot"></span>
+        <div>
+          <div class="eyebrow">寶可夢大集結</div>
+          <h1 id="titleText">本日戰績</h1>
+        </div>
+      </header>
+      <div class="score-row">
+        <div class="score win">
+          <span class="label">勝利</span>
+          <strong id="wins">0</strong>
+        </div>
+        <div class="divider"></div>
+        <div class="score loss">
+          <span class="label">敗北</span>
+          <strong id="losses">0</strong>
+        </div>
+      </div>
+      <div class="stats">
+        <div><span>總場次</span><strong id="total">0</strong></div>
+        <div><span>勝率</span><strong id="rate">—</strong></div>
+        <div><span>目前連勝</span><strong id="streak">0</strong></div>
+      </div>
+      <div class="recent-wrap">
+        <div class="recent-title">最近戰績</div>
+        <div id="recent" class="recent"><span class="empty">尚無對戰紀錄</span></div>
+      </div>
+    </section>
+  </main>
+
+  <main id="control" class="control hidden">
+    <header class="control-header">
+      <div>
+        <div class="eyebrow">寶可夢大集結</div>
+        <h1>直播戰績控制台</h1>
+        <p>每場結束後點一下，OBS 戰績面板就會同步更新。</p>
+      </div>
+      <span class="status"><i></i> 本機儲存已啟用</span>
+    </header>
+
+    <section class="control-card current">
+      <div class="mini-label">目前戰績</div>
+      <div class="control-stats">
+        <div><span>勝場</span><strong id="cWins">0</strong></div>
+        <div><span>敗場</span><strong id="cLosses">0</strong></div>
+        <div><span>總場次</span><strong id="cTotal">0</strong></div>
+        <div><span>勝率</span><strong id="cRate">—</strong></div>
+      </div>
+    </section>
+
+    <section class="control-card">
+      <label for="customTitle">面板標題</label>
+      <div class="inline-form">
+        <input id="customTitle" maxlength="30" value="本日戰績" placeholder="例如：全角色一勝挑戰">
+        <button id="saveTitle" class="secondary">更新標題</button>
+      </div>
+      <div class="button-row">
+        <button id="winBtn" class="action win-action">＋ 記錄勝利</button>
+        <button id="lossBtn" class="action loss-action">＋ 記錄敗北</button>
+      </div>
+      <div class="button-row">
+        <button id="undoBtn" class="secondary">↶ 撤銷上一場</button>
+        <button id="resetBtn" class="danger">重設全部戰績</button>
+      </div>
+      <p class="hint">提醒：重設會清除目前紀錄；撤銷只會移除最近一場。</p>
+    </section>
+
+    <section class="control-card">
+      <div class="section-heading">
+        <h2>最近對戰</h2>
+        <span id="historyCount">0 場</span>
+      </div>
+      <ol id="historyList" class="history-list"><li class="empty">還沒有紀錄</li></ol>
+    </section>
+    <footer>提示：將 <code>?mode=overlay</code> 的網址加入 OBS「瀏覽器」來源；本頁使用同一網址的 <code>?mode=control</code> 管理戰績。</footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
